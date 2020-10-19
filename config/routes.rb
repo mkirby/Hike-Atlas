@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trails
   resources :catergories
   resources :items
   resources :users
