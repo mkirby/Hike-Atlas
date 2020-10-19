@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_hikes
   resources :hike_items
   resources :hikes
   resources :trails
