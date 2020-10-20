@@ -4,6 +4,10 @@ class User < ApplicationRecord
     has_many :hikes, through: :user_hikes
     has_secure_password
 
+    def total_hikes
+        self.hikes.count
+    end
+    
     def past_hikes
         #needs to select only hikes that have past
         #work in progress

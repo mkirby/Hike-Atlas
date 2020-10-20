@@ -5,5 +5,7 @@ rescue LoadError => e
   raise unless e.message.include?('spring')
 end
 APP_PATH = File.expand_path('../config/application', __dir__)
-require_relative '../config/boot'
+#removed 10/20/20 to fix the following error:
+#cannot load such file -- /Hike-Atlas/config/boot (LoadError)
+#require_relative '../config/boot'
 require 'rails/commands'
