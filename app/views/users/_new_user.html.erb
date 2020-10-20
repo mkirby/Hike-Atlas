@@ -1,0 +1,25 @@
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p>error</p>
+    <% end %>
+<% end %>
+
+<%= form_for @user do |f| %>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %><br>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %><br>
+    <%= f.label :phone, "Phone Number ex. (123) 456-7890" %><br>
+    <%= f.text_field :phone %><br>
+    <%= f.label :e_contact_name, "Emergency Contact Name:" %><br>
+    <%= f.text_field :e_contact_name %><br>
+    <%= f.label :e_contact_email, "Emergency Contact Email:" %><br>
+    <%= f.text_field :e_contact_email %><br>
+    <%= f.label :e_contact_phone, "Emergency Contact Phone:" %><br>
+    <%= f.text_field :e_contact_phone %><br><br>
+    <%= f.submit %>
+<% end %>

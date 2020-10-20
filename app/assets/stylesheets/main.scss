@@ -1,2 +1,11 @@
-@import 'bulma/bulma';
+// uncomment to readd bulma formatting
+// going to need to specify a few things
+// @import 'bulma/bulma';
 @import '_layout';
+@import 'categories';
+@import 'hike_items';
+@import 'hikes';
+@import 'items';
+@import 'trails';
+@import 'user_hikes';
+@import 'users';
