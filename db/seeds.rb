@@ -39,11 +39,15 @@ end
     name = Faker::FunnyName.unique.name.split(" ")
     first_name = name[0]
     last_name = name [1]
+    email = Faker::Internet.email(name: "#{name}", separators: '.')
+    pass = Faker::Internet.password
     User.create(
         first_name: first_name,
         last_name: last_name,
-        email: Faker::Internet.email(name: "#{name}", separators: '.'),
-        password_digest: Faker::Internet.password,
+        email: email,
+        email_confirmation: email,
+        password_digest: pass,
+        password_digest_confirmation: pass,
         phone: Faker::PhoneNumber.cell_phone,
         e_contact_name: Faker::FunnyName.unique.three_word_name,
         e_contact_email: Faker::Internet.unique.email,
@@ -77,9 +81,5 @@ end
 end
 
 50.times do
-    hike = Hike.all.sample
-    hike.users.each do |user|
-        @item = user.items.sample
-    end
-    HikeItem.create(item_id: @item.id , hike_id: hike.id)
+    HikeItem.create(item_id: Item.all.sample.id, hike_id: Hike.all.sample.id)
 end
