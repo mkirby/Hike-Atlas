@@ -7,9 +7,81 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
   </head>
 
   <body>
-    <%= yield %>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              Hike Atlas
+            </div>
+          </div>
+          <div class="level-right">
+            
+            <p class="level-item">
+              <%= link_to("Search Trails", trails_path, :class => "button is-dark is-outlined") %>
+            </p>
+            
+            <% if @currentUser %>
+              <p class="level-item">
+              <%= link_to("Hikes", hikes_path, :class => "button is-dark is-outlined") %>
+              </p>
+              <p class="level-item">
+              <%= link_to("Inventory", items_path, :class => "button is-dark is-outlined") %>
+              </p>
+              <p class="level-item">
+              <!-- Need to set log out path -->
+              <%= link_to("Log Out", users_path, :class => "button is-dark is-outlined") %>
+              </p>
+            <% else%>
+              <p class="level-item">
+              <%= link_to("Sign Up", new_user_path, :class => "button is-dark is-outlined") %>
+              </p>
+              <p class="level-item">
+                <%= link_to("Log In", users_path, :class => "button is-dark is-outlined") %>
+              </p>
+            <% end%>
+            </p>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SITE CONTENT -->
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <nav class="level">
+
+          <div class="level-left">
+            Copyright © 2020 Hike Atlas. All rights reserved.
+          </div>
+
+          <div class="level-right">
+            <p class="level-item">A Roman Tetelbaum and Matthew Kirby App</p>
+            <a href="https://github.com/mkirby/Hike-Atlas" class="button is-light is-outlined">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>GitHub</span>
+            </a>
+
+          </div>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

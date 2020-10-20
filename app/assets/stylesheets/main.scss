@@ -1,6 +1,11 @@
-// uncomment to readd bulma formatting
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+$family-primary:'Ubuntu', sans-serif;
+$footer-background-color:#342E37;
+$footer-padding:1.5rem 1.5rem;
+// uncomment to read bulma formatting
 // going to need to specify a few things
-// @import 'bulma/bulma';
+@import 'bulma/bulma';
+
 @import '_layout';
 @import 'categories';
 @import 'hike_items';
