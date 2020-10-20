@@ -28,8 +28,8 @@ api_data["trails"].each do |trail|
 	)  
 end
 
-results = Geocoder.search("New York, NY")
-results.first.coordinates
+# results = Geocoder.search("New York, NY")
+# results.first.coordinates
 
 10.times do
     Hike.create(trail_id: Trail.all.sample.id, start_date: ["January 8, 2021","January 15, 2021","January 20, 2021"].sample, end_date: ["February 8, 2021","February 15, 2021","February 20, 2021"].sample, note: ["Best Friends Outing Trip", "Hike Away the Blues Trip", "Solo Trip", "Backpacking the great unknown"].sample)

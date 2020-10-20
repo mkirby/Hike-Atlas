@@ -2,9 +2,11 @@ class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
     def index
+        #root website page
     end
 
     def show
+        #users account page
     end
 
     def new

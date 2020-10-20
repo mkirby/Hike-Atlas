@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'trail#index'
+  root 'users#index'
   resources :hike_items
   resources :user_hikes
   resources :items
