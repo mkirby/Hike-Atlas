@@ -2,12 +2,15 @@ class User < ApplicationRecord
     has_many :items
     has_many :user_hikes
     has_many :hikes, through: :user_hikes
+    validates :email, :email_confirmation, :password, :password_confirmation, :phone, :first_name, :last_name, :e_contact_name, :e_contact_email, :e_contact_phone, presence: true
+    validates :email, uniqueness: true, confirmation: true
+    validates :password, confirmation: true
     has_secure_password
 
     def total_hikes
         self.hikes.count
     end
-    
+
     def past_hikes
         #needs to select only hikes that have past
         #work in progress
