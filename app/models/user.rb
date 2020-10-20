@@ -7,30 +7,45 @@ class User < ApplicationRecord
     validates :password, confirmation: true
     has_secure_password
 
-    def total_hikes
-        self.hikes.count
+    def upcoming_hikes
+        #not sure how this behaves if the end_date is the current date
+        # needs to be >= Time.now for upcoming hikes
+        self.hikes.select { |hike| hike.end_date >= Time.now }
     end
 
     def past_hikes
-        #needs to select only hikes that have past
-        #work in progress
-        #self.hikes.select { |hike| hike.end_date}
+        #not sure how this behaves if the end_date is the current date
+        # needs to be <= Time.now for past hikes
+        self.hikes.select { |hike| hike.end_date <= Time.now }
+    end
+
+    def total_past_hikes
+        self.past_hikes.count
+    end
+
+    def total_upcoming_hikes
+        self.upcoming_hikes.count
     end
 
     def total_miles
-        #needs to only pull from past hikes
-        self.hikes.map{ |hike| hike.trail.length }.sum
+        self.past_hikes.map{ |hike| hike.trail.length }.sum
     end
 
     def highest_peak
         #returns nil if they've been on no hikes
-        #needs to only pull from past hikes
-        self.hikes.map { |hike| hike.trail.high }.max
+        if self.total_past_hikes > 0
+            self.past_hikes.map { |hike| hike.trail.high }.max
+        else
+            "No Past Hikes Found. Create A Hike To Start Tracking Milestones."
+        end
     end
 
     def longest_ascent
         #returns nil if they've been on no hikes
-        #needs to only pull from past hikes
-        self.hikes.map { |hike| hike.trail.ascent }.max
+        if self.total_past_hikes > 0
+            self.past_hikes.map { |hike| hike.trail.ascent }.max
+        else
+            "No Past Hikes Found. Create A Hike To Start Tracking Milestones."
+        end
     end
 end
