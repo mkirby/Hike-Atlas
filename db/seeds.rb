@@ -51,8 +51,11 @@ end
     )
 end
 
-5.times do 
-    Category.create(name: Faker::Superhero.unique.power)
+@categories = ["Hiking Gear", "Clothing & Footwear", "Food & Water", "Navigation", "Emergency & First Aid", "Health & Hygiene", "Tools & Repair Items", "Day Hiking Extras", "Personal Items"]
+@count = 0
+10.times do
+    Category.create(name: @categories[@count])
+    @count += 1
 end
 
 50.times do
