@@ -1,4 +1,6 @@
-require_relative 'boot'
+#removed 10/20/20 to fix the following error:
+#cannot load such file -- /Hike-Atlas/config/boot (LoadError)
+#require_relative 'boot'
 
 require 'rails/all'
 

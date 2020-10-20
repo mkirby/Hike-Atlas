@@ -1,8 +1,23 @@
-<h1>User Show</h1>
-<p>Link to search trails -> trails#index</p>
-<p>Link to view inventory -> items#index</p>
-<p>List of upcoming hikes -> hikes#show</p>
-<p>List of past hikes -> hikes#show</p>
-<p>#total_miles</p>
-<p>#highest_peak</p>
-<p>#longest_ascent</p>
+<h1><%= @user.first_name + " " + @user.last_name%> Profile Page</h1>
+
+<p>Account Details:<br>
+Email: <%= @user.email %><br>
+Password: <%= "Change Password" %><br>
+Phone Number: <%= @user.phone %><br>
+</p>
+
+<p>Account Stats:<br>
+Total Hikes: <%= @user.total_hikes %><br>
+Total Miles: <%= @user.total_miles %> Miles<br>
+Highest Peak: <%= @user.highest_peak %> Feet<br>
+Longest Ascent: <%= @user.longest_ascent %> Feet
+</p>
+
+<p>Emergency Contact:<br>
+<%= @user.e_contact_name %><br>
+<%= @user.e_contact_email %><br>
+<%= @user.e_contact_phone %>
+</p>
+
+
+<p>link to update account</p>
