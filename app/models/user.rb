@@ -32,20 +32,20 @@ class User < ApplicationRecord
     end
 
     def highest_peak
-        #returns nil if they've been on no hikes
         if self.total_past_hikes > 0
-            self.past_hikes.map { |hike| hike.trail.high }.max
+            high = self.past_hikes.map { |hike| hike.trail.high }.max
+            high.to_s + " Feet"
         else
-            "No Past Hikes Found. Create A Hike To Start Tracking Milestones."
+            "Create A Hike To Start Tracking Milestones."
         end
     end
 
     def longest_ascent
-        #returns nil if they've been on no hikes
         if self.total_past_hikes > 0
-            self.past_hikes.map { |hike| hike.trail.ascent }.max
+            ascent = self.past_hikes.map { |hike| hike.trail.ascent }.max
+            ascent.to_s + " Feet"
         else
-            "No Past Hikes Found. Create A Hike To Start Tracking Milestones."
+            "Create A Hike To Start Tracking Milestones."
         end
     end
 end

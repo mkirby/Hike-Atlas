@@ -7,10 +7,10 @@ Phone Number: <%= @user.phone %><br>
 </p>
 
 <p>Account Stats:<br>
-Total Hikes: <%= @user.total_hikes %><br>
-Total Miles: <%= @user.total_miles %> Miles<br>
-Highest Peak: <%= @user.highest_peak %> Feet<br>
-Longest Ascent: <%= @user.longest_ascent %> Feet
+Total Hikes: <%= @user.total_past_hikes %><br>
+Total Miles: <%= @user.total_miles %><br>
+Highest Peak: <br><%= @user.highest_peak %><br>
+Longest Ascent: <br><%= @user.longest_ascent %>
 </p>
 
 <p>Emergency Contact:<br>
@@ -19,5 +19,4 @@ Longest Ascent: <%= @user.longest_ascent %> Feet
 <%= @user.e_contact_phone %>
 </p>
 
-
-<p>link to update account</p>
+<p><%= link_to "Update Account Information", edit_user_path(@user) %></p>
