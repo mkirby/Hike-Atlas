@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
     end
 
     def edit
+        @categories = Category.all
     end
 
     def update

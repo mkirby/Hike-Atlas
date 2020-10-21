@@ -1,4 +1,5 @@
 class TrailsController < ApplicationController
+    before_action :find_trail, only: [:show]
 
     def index
         @city = params[:city]
@@ -14,10 +15,28 @@ class TrailsController < ApplicationController
     def show
     end
 
+    def new
+        @trail = Trail.new
+    end
+
+    def create
+        @trail = Trail.create(trail_params)
+        if @trail.valid?
+            # go somewhere?
+            #redirect_to trail_path(@trail)
+        else
+            flash[:errors] = @trail.errors.full_messages
+            redirect_to trails_path
+        end
+    end
+
     private
 
     def trail_params
         params.require(:trail).permit(:api_id, :name, :summary, :difficulty, :stars, :location, :img_sq_small, :img_medium, :length, :ascent, :high, :condition_status, :condition_details, :condition_date, :url)
-	end
-		
+    end
+    
+    def find_trail
+        @trail = Trail.find(params[:id])
+    end
 end
