@@ -33,8 +33,7 @@ class HikesController < ApplicationController
     end
 
     def edit
-        # @items = @current_user.items
-        @items = User.first.items
+        @items = @current_user.items
     end
 
     def update
