@@ -1,6 +1,5 @@
 <h1>Welcome Page</h1>
 <p>Welcome to Hike Atlas!</p>
-<p>Please Log In Or Sign Up.</p>
 
 <% if @current_user %>
 
@@ -8,7 +7,9 @@
 
 <% else %>
 
-  <p>Need to login</p>
-  <%= link_to "Log In", new_login_path %>
+	<% if flash[:not_authorized] %>
+		<p><%= flash[:not_authorized] %></p>
+	<% end %>
+	<p>Please Log In Or Sign Up.</p>
 
 <% end %>

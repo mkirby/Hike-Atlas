@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	skip_before_action :authorized?, only: [:new_login, :login]
 	
   def new_login
 	end 
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
     #compare passwords
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to user_path(@user)
     else 
       flash[:error] = "Password or Email did not match"
       redirect_to new_login_path
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
 	
 	def logout 
     session.delete(:user_id)
-    redirect_back fallback_location: users_path
+    redirect_to users_path
   end
 
 end
