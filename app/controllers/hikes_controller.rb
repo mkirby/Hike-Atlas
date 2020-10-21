@@ -14,7 +14,10 @@ class HikesController < ApplicationController
     def new
         @hike = Hike.new
         # @items = @current_user.items
-				@items = User.first.items
+        @items = User.first.items
+        if params[:api_id]
+            Trail.find_or_create_trail(params[:api_id])
+        end
     end
 
     def create

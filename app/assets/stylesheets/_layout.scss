@@ -1,3 +1,10 @@
+//this setting puts borders around every single element so we can view the layout
+//comment this out to return to normal
+* {
+    border: 1px solid black
+}
+
+
 body {
     display:flex;
     flex-direction:column;

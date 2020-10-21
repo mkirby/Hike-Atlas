@@ -14,36 +14,38 @@ class Trail < ApplicationRecord
         api_data = JSON.parse(api_response)
     end
 
-    #when we decide to seed a trail in the database
+    def self.trail_in_database?(api_id)
+        Trail.find_by(api_id: api_id) ? true : false
+    end
+
+    #returns the PK ID of the trail
     def self.find_or_create_trail(api_id)
-        #either find it if it exists
-        #or create it
-        #returns the PK ID of the trail
-        if Trail.find_by(api_id: api_id)
-            #find
+        if Trail.trail_in_database?(api_id)
+            #finds a trail in our database
             trail = Trail.find_by(api_id: api_id)
             trail.id
         else
-            #create
-            api_response = RestClient.get("https://www.hikingproject.com/data/get-trails-by-id?ids=#{api_id}&key=#{$hike_key}")
-            api_data = JSON.parse(api_response)
-            Trail.create(
-                api_id: api_data[:trails][0][:id],
-                name: api_data[:trails][0][:name],
-                summary: api_data[:trails][0][:summary],
-                difficulty: api_data[:trails][0][:difficulty],
-                length: api_data[:trails][0][:length],
-                stars: api_data[:trails][0][:stars],
-                location: api_data[:trails][0][:location],
-                ascent: api_data[:trails][0][:ascent],
-                high: api_data[:trails][0][:high],
-                condition_status: api_data[:trails][0][:conditionStatus],
-                condition_details: api_data[:trails][0][:conditionDetails],
-                condition_date: api_data[:trails][0][:conditionDate],
-                img_sq_small: api_data[:trails][0][:imgSqSmall],
-                img_medium: api_data[:trails][0][:imgMedium],
-                url: api_data[:trails][0][:url]
+            #creates a new trail in our database if it doesn't exist already
+            api_response = RestClient.get("https://www.hikingproject.com/data/get-trails-by-id?ids=#{api_id.to_s}&key=#{$hike_key}")
+            @api_data = JSON.parse(api_response)
+            new_trail = Trail.create(
+                api_id: @api_data["trails"][0]["id"],
+                name: @api_data["trails"][0]["name"],
+                summary: @api_data["trails"][0]["summary"],
+                difficulty: @api_data["trails"][0]["difficulty"],
+                length: @api_data["trails"][0]["length"],
+                stars: @api_data["trails"][0]["stars"],
+                location: @api_data["trails"][0]["location"],
+                ascent: @api_data["trails"][0]["ascent"], 
+                high: @api_data["trails"][0]["high"],
+                condition_status: @api_data["trails"][0]["conditionStatus"],
+                condition_details: @api_data["trails"][0]["conditionDetails"],
+                condition_date: @api_data["trails"][0]["conditionDate"],
+                img_sq_small: @api_data["trails"][0]["imgSqSmall"],
+                img_medium: @api_data["trails"][0]["imgMedium"],
+                url: @api_data["trails"][0]["url"]
             )
+            new_trail.id
         end
     end
 end

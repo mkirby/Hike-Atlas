@@ -19,7 +19,7 @@
 				<li>Condition Date: <%= trail["conditionDate"] %></li>
 				<li>Summary: <%= trail["summary"] %></li>
 				<li><a href="<%= trail["url"] %>">Hiking Project Link</a></li>
-				<li><%= link_to "Plan a New Hike to #{trail["name"]}", new_hike_path %></li>
+				<li><%= button_to "Plan a New Hike to #{trail["name"]}", new_hike_path, params: {api_id: trail["id"]}, method: :get %></li>
 			</ul>
 		</div>
 	<% end %>

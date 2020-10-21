@@ -15,21 +15,6 @@ class TrailsController < ApplicationController
     def show
     end
 
-    def new
-        @trail = Trail.new
-    end
-
-    def create
-        @trail = Trail.create(trail_params)
-        if @trail.valid?
-            # go somewhere?
-            #redirect_to trail_path(@trail)
-        else
-            flash[:errors] = @trail.errors.full_messages
-            redirect_to trails_path
-        end
-    end
-
     private
 
     def trail_params
