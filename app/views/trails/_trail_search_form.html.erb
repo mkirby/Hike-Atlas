@@ -1,0 +1,11 @@
+<%= form_tag trails_path action: "index" method: "get" do %>
+	<label>City</label><br>
+	<%= text_field_tag(:city, params[:city]) %><br>
+	<label>State</label><br>
+	<%= text_field_tag(:state, params[:state]) %><br>
+	<label>Max Distance (1-100)</label><br>
+	<%= number_field(:max_distance, params[:max_distance], in: 1..100) %><br>
+	<label>Max Results (1-10)</label><br>
+	<%= number_field(:max_results, params[:max_results], in: 1..10) %><br>
+	<%= submit_tag ("Search") %>
+<% end %>

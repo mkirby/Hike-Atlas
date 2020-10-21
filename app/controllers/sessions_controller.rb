@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
 	
   def new_login
-    #defaulting to render sessions#new_login which doesn't exist
-
+    #defaulting to render sessions#new_login which doesn't exist?
 	end 
 
-	def login 
+	def create_login
     # find user 
     @user = User.find_by(email: params[:session][:email])
 
@@ -22,5 +21,6 @@ class SessionsController < ApplicationController
 	def logout 
     session.delete(:user_id)
     redirect_back fallback_location: users_path
-  end 
+  end
+
 end
