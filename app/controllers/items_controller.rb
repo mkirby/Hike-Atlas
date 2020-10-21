@@ -2,7 +2,10 @@ class ItemsController < ApplicationController
     before_action :find_item, only: [:show, :edit, :update, :destroy]
 
     def index
-        #we should use this page to display all the items that belong to a singular user
+        #displays all items owned by a single user
+        #need to set to @current_user
+        @items = User.first.items
+        @categories = Category.all
     end
 
     def show

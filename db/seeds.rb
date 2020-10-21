@@ -46,8 +46,8 @@ end
         last_name: last_name,
         email: email,
         email_confirmation: email,
-        password_digest: pass,
-        password_digest_confirmation: pass,
+        password: pass,
+        password_confirmation: pass,
         phone: Faker::PhoneNumber.cell_phone,
         e_contact_name: Faker::FunnyName.unique.three_word_name,
         e_contact_email: Faker::Internet.unique.email,
@@ -81,5 +81,5 @@ end
 end
 
 50.times do
-    HikeItem.create(item_id: Item.all.sample.id, hike_id: Hike.all.sample.id)
+    HikeItem.create(item_id: Item.all.sample.id , hike_id: Hike.all.sample.id)
 end
