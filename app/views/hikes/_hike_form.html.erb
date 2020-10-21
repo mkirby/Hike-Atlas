@@ -14,6 +14,6 @@
 		<%= f.label :note %><br>
 		<%= f.text_area :note %><br>
 
-    <%= f.hidden_field(:trail_id, :value => Trail.first.id) %><br>
+    <%= f.hidden_field(:trail_id, :value => @trail_id) %><br>
     <%= f.submit %>
 <% end %>

@@ -1,19 +1,27 @@
 <h1>Welcome Page</h1>
-<p>Welcome to Hike Atlas! Please log in or sign up.</p>
-<p>link to sign up</p>
+<p>Welcome to Hike Atlas!</p>
+<p>Please Log In Or Sign Up.</p>
 
-<h1>User Login</h1>
+<% if @current_user %>
 
-<% if flash[:error] %>
-  <p><%= flash[:error] %></p>
-<% end %>
+  <p>Hello, <%= @current_user.first_name + " " + @current_user.last_name%>!</p>
 
-<%= form_for :session do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email  %>
+<% else %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <h1>User Login</h1>
 
-  <%= f.submit "Log In" %>
+  <% if flash[:error] %>
+    <p><%= flash[:error] %></p>
+  <% end %>
+
+  <%= form_for :session do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email  %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Log In" %>
+  <% end %>
+
 <% end %>
