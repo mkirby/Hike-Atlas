@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     def destroy
         @user.delete
         ## verify where we want this to go
-        redirect_to trails_path
+        redirect_to users_path
     end
 
     private
