@@ -29,6 +29,6 @@
 		<%= f.label :category_id %><br>
 		<%= f.collection_select :category_id, @categories, :id, :name %>
 
-    <%= f.hidden_field(:user_id, :value => User.first.id) %><br>
+    <%= f.hidden_field(:user_id, :value => @current_user.id) %><br>
     <%= f.submit %>
 <% end %>

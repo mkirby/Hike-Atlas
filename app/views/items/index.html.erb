@@ -3,7 +3,7 @@
 
     <% cat_items = @items.select { |item| item.category == category} %>
         <% cat_items.each do |item| %>
-            <h3>Name: <%= item.name %></h3>
+            <h3>Name: <%= item.name %><%= button_to "Edit Item", edit_item_path(item), method: :get %></h3>
             <ul>
 							<li>Description: <%= item.description %></li>
 							<li>Weight: <%= item.weight %> lbs.</li>
