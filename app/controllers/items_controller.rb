@@ -45,9 +45,13 @@ class ItemsController < ApplicationController
     end
 
     def destroy
+        #find all hikeitems related to a single item
+        all_hike_items = HikeItem.all.select { |record| record.item_id == @item.id}
+        #destroy each join table record
+        all_hike_items.each { |record| record.delete}
+        #delete the item 
         @item.delete
-        #verify were we redirect to
-        redirect_to user_path(@item.user)
+        redirect_to items_path
     end
 
     private
