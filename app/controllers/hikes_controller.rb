@@ -16,7 +16,7 @@ class HikesController < ApplicationController
         # @items = @current_user.items
         @items = User.first.items
         if params[:api_id]
-            Trail.find_or_create_trail(params[:api_id])
+            @trail_id = Trail.find_or_create_trail(params[:api_id])
         end
     end
 
