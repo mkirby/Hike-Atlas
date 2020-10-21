@@ -13,8 +13,7 @@ class HikesController < ApplicationController
 
     def new
         @hike = Hike.new
-        # @items = @current_user.items
-        @items = User.first.items
+        @items = @current_user.items
         if params[:api_id]
             @trail_id = Trail.find_or_create_trail(params[:api_id])
         end
@@ -22,6 +21,9 @@ class HikesController < ApplicationController
 
     def create
         @hike = Hike.create(hike_params)
+        #doesn't know to make the hikeitem!?!
+        #where hike_item creation exists
+
         if @hike.valid?
             redirect_to hike_path(@hike)
         else
@@ -31,8 +33,7 @@ class HikesController < ApplicationController
     end
 
     def edit
-        # @items = @current_user.items
-        @items = User.first.items
+        @items = @current_user.items
     end
 
     def update

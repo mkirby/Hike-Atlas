@@ -2,9 +2,9 @@ class User < ApplicationRecord
     has_many :items
     has_many :user_hikes
     has_many :hikes, through: :user_hikes
-    validates :email, :email_confirmation, :password_digest, :password_digest_confirmation, :phone, :first_name, :last_name, :e_contact_name, :e_contact_email, :e_contact_phone, presence: true
+    validates :email, :email_confirmation, :password, :password_confirmation, :phone, :first_name, :last_name, :e_contact_name, :e_contact_email, :e_contact_phone, presence: true
     validates :email, uniqueness: true, confirmation: true
-    validates :password_digest, confirmation: true
+    validates :password, confirmation: true
     has_secure_password
 
     def upcoming_hikes
