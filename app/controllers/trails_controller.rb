@@ -4,7 +4,8 @@ class TrailsController < ApplicationController
         @city = params[:city]
         @state = params[:state]
         @max_distance = params[:max_distance]
-				@max_results = params[:max_results]
+        @max_results = params[:max_results]
+        # number field returns ["20"]? maybe call @max_distance[0] and @max_results[0]
 				if @city && @state && @max_distance && @max_results
 					@api_data = Trail.trail_search(@city, @state, @max_distance, @max_results)
 				end
