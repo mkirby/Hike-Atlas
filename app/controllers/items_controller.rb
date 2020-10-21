@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
         #displays all items owned by a single user
         #need to set to @current_user
         @items = User.first.items
+        # @items = @current_user.items
         @categories = Category.all
     end
 
@@ -14,11 +15,13 @@ class ItemsController < ApplicationController
 
     def new
         @item = Item.new
+        @categories = Category.all
     end
 
     def create
+        # @current_user.items << Item.create(item_params)
         @item = Item.create(item_params)
-        if @item.valid?
+            if @item.valid?
             #verify were we redireect to
             redirect_to user_path(@item.user)
         else

@@ -1,5 +1,16 @@
 <% @categories.each do |category| %>
+    <h2><%= category.name %></h2>
 
-    <h1><%= category.name %></h1>
-
+    <% cat_items = @items.select { |item| item.category == category} %>
+        <% cat_items.each do |item| %>
+            <h3>Name: <%= item.name %></h3>
+            <ul>
+							<li>Description: <%= item.description %></li>
+							<li>Weight: <%= item.weight %> lbs.</li>
+							<li>Cost: $<%= item.cost %></li>
+							<li>Condition: <%= item.condition %></li>
+							<li>Note: <%= item.note %></li>
+							<li><a href="<%= item.url %>">Item Link</a></li>
+						</ul>
+        <% end %>
 <% end %>
