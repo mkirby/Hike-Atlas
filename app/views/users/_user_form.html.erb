@@ -15,8 +15,14 @@
     <%= f.label :email %><br>
     <%= f.email_field :email %><br>
 
+    <%= f.label :email_confirmation, "Email Confirmation" %><br>
+    <%= f.email_field :email_confirmation %><br>
+
     <%= f.label :password %><br>
     <%= f.password_field :password %><br>
+
+    <%= f.label :password_confirmation, "Password Confirmation" %><br>
+    <%= f.password_field :password_confirmation %><br>
 
     <p>Contact Details</p>
     <%= f.label :phone, "Phone Number ex. (123) 456-7890" %><br>

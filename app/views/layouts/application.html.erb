@@ -25,11 +25,11 @@
           </div>
           <div class="level-right">
             
-            <p class="level-item">
-              <%= link_to("Search Trails", trails_path, :class => "button is-dark is-outlined") %>
-            </p>
-            
-            <% if @currentUser %>
+            <% if @current_user %>
+
+              <p class="level-item">
+                <%= link_to("Search Trails", trails_path, :class => "button is-dark is-outlined") %>
+              </p>
               <p class="level-item">
               <%= link_to("Hikes", hikes_path, :class => "button is-dark is-outlined") %>
               </p>
@@ -37,15 +37,14 @@
               <%= link_to("Inventory", items_path, :class => "button is-dark is-outlined") %>
               </p>
               <p class="level-item">
-              <!-- Need to set log out path -->
-              <%= link_to("Log Out", users_path, :class => "button is-dark is-outlined") %>
+              <%= link_to("Log Out", logout_path, method: :delete, :class => "button is-dark is-outlined") %>
               </p>
             <% else%>
               <p class="level-item">
               <%= link_to("Sign Up", new_user_path, :class => "button is-dark is-outlined") %>
               </p>
               <p class="level-item">
-                <%= link_to("Log In", users_path, :class => "button is-dark is-outlined") %>
+                <%= link_to("Log In", new_login_path, :class => "button is-dark is-outlined") %>
               </p>
             <% end%>
             </p>

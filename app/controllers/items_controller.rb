@@ -3,14 +3,11 @@ class ItemsController < ApplicationController
 
     def index
         #displays all items owned by a single user
-        #need to set to @current_user
-        @items = User.first.items
-        # @items = @current_user.items
+        @items = @current_user.items
         @categories = Category.all
     end
 
     def show
-        #do we need an item show page?
     end
 
     def new
@@ -22,8 +19,7 @@ class ItemsController < ApplicationController
         # @current_user.items << Item.create(item_params)
         @item = Item.create(item_params)
             if @item.valid?
-            #verify were we redireect to
-            redirect_to user_path(@item.user)
+            redirect_to items_path
         else
             flash[:errors] = @item.errors.full_messages
             redirect_to new_item_path(@item)
@@ -36,8 +32,7 @@ class ItemsController < ApplicationController
 
     def update
         if @item.update(item_params)
-            #verify were we redireect to
-            redirect_to user_path(@item.user)
+            redirect_to items_path
         else
             flash[:errors] = @item.errors.full_messages
             redirect_to edit_item_path(@item)
