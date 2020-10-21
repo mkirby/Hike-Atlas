@@ -4,7 +4,7 @@
     <p><%= flash[:error] %></p>
 <% end %>
 
-<%= form_for :session do |f| %>
+<%= form_for @session do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email  %>
 

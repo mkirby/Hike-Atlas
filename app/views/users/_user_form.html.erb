@@ -7,26 +7,30 @@
 <%= form_for @user do |f| %>
     <%= f.label :first_name, "First Name" %><br>
     <%= f.text_field :first_name %><br>
+
     <%= f.label :last_name, "Last Name" %><br>
     <%= f.text_field :last_name %><br>
+
     <p>Log In Details</p>
     <%= f.label :email %><br>
     <%= f.email_field :email %><br>
-    <%= f.label :email_confirmation, "Email Confirmation" %><br>
-    <%= f.email_field :email_confirmation %><br>
+
     <%= f.label :password %><br>
     <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation, "Password Confirmation" %><br>
-    <%= f.password_field :password_confirmation %><br>
+
     <p>Contact Details</p>
     <%= f.label :phone, "Phone Number ex. (123) 456-7890" %><br>
     <%= f.telephone_field :phone %><br>
+
     <p>Emergency Contact Details</p>
     <%= f.label :e_contact_name, "Name:" %><br>
     <%= f.text_field :e_contact_name %><br>
+
     <%= f.label :e_contact_email, "Email:" %><br>
     <%= f.email_field :e_contact_email %><br>
+
     <%= f.label :e_contact_phone, "Phone:" %><br>
     <%= f.telephone_field :e_contact_phone %><br><br>
+
     <%= f.submit %>
 <% end %>
