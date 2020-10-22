@@ -1,0 +1,13 @@
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<%= form_for @hike_item do |f| %>
+		<%= f.label "Items" %><br>
+		<%= f.collection_select :item_id, @items, :id, :name %><br>
+
+    <%= f.hidden_field(:hike_id, :value => @hike_id) %><br>
+    <%= f.submit %>
+<% end %>

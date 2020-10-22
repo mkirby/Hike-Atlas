@@ -46,7 +46,7 @@ class HikesController < ApplicationController
     end
 
     def destroy
-        @hike.destroy
+        @hike.delete
         ## verify where we want this to go
         redirect_to trails_path
     end
@@ -59,6 +59,6 @@ class HikesController < ApplicationController
 
     def hike_params
         params.require(:hike).permit(:trail_id, :start_date, :end_date, :note, hike_item_attributes: [:hike_id, :item_id])
-	end
+		end
 		
 end
