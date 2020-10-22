@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 $family-primary:'Ubuntu', sans-serif;
-$footer-background-color:#342E37;
+
+$footer-background-color:#343d3d;
 $footer-padding:1.5rem 1.5rem;
-// uncomment to read bulma formatting
-// going to need to specify a few things
+$footer-color:white;
+
 @import 'bulma/bulma';
 
 @import '_layout';

@@ -12,10 +12,23 @@ body {
     height:100vh;
 }
 .header {
-    background-color:whitesmoke;
-    padding:2rem 1.5rem;
+		background-color:#343d3d;
+		background-image: url("dark_woods_banner.jpg");
+		background-size: cover;
+		padding:2rem 1.5rem;
 }
+
+.header a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none
+}
+
 .section {
     display:flex;
     flex:1 0 auto;
+		background-color: #1f2525;
+		color: white;
 }
