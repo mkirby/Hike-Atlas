@@ -2,10 +2,8 @@ class HikesController < ApplicationController
     before_action :find_hike, only: [:show, :edit, :update, :destroy]
 
     def index
-        # @upcoming_hikes = @current_user.upcoming_hikes
-        # @past_hikes = @current_user.past_hikes
-        @upcoming_hikes = User.first.upcoming_hikes
-        @past_hikes = User.first.past_hikes
+        @upcoming_hikes = @current_user.upcoming_hikes
+        @past_hikes = @current_user.past_hikes
     end
 
     def show
@@ -13,8 +11,8 @@ class HikesController < ApplicationController
 
     def new
         @hike = Hike.new
-				@items = @current_user.items
-				@hike_item = HikeItem.new
+            @items = @current_user.items
+            @hike_item = HikeItem.new
         if params[:api_id]
             @trail_id = Trail.find_or_create_trail(params[:api_id])
         end
@@ -22,9 +20,8 @@ class HikesController < ApplicationController
 
     def create
         @hike = Hike.create(hike_params)
-        
-
         if @hike.valid?
+            @user_hike = UserHike.create(hike_id: @hike.id, user_id: @current_user.id)
             redirect_to hike_path(@hike)
         else
             flash[:errors] = @hike.errors.full_messages

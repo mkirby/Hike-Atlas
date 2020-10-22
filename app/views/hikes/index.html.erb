@@ -1,0 +1,17 @@
+<div>
+    <h3>Upcoming Hikes</h3>
+    <ul>
+        <% @upcoming_hikes.each do |hike| %>
+            <li><%= hike.start_date%> - <%= link_to hike.trail.name, hike_path(hike) %></li>
+        <% end%>
+    </ul>    
+</div>
+
+<div>
+    <h3>Past Hikes</h3>
+    <ul>
+        <% @past_hikes.each do |hike| %>
+            <li><%= hike.end_date%> - <%= link_to hike.trail.name, hike_path(hike) %></li>
+        <% end%>
+    </ul>    
+</div>
