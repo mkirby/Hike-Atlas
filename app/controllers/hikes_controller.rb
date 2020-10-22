@@ -32,6 +32,7 @@ class HikesController < ApplicationController
 
     def edit
         @items = @current_user.items
+        @trail_id = @hike.trail_id
     end
 
     def update
@@ -44,8 +45,19 @@ class HikesController < ApplicationController
     end
 
     def destroy
+        #find all hikeitems related to a single hike
+        all_hike_items = HikeItem.all.select { |record| record.hike_id == @hike.id}
+        #destroy each join table record
+        all_hike_items.each { |record| record.delete}
+        #delete the item
+
+        #find all UserHikes related to a single hike
+        all_user_hikes = UserHike.all.select { |record| record.hike_id == @hike.id}
+        #destroy each join table record
+        all_user_hikes.each { |record| record.delete}
+        #delete the item
+
         @hike.delete
-        ## verify where we want this to go
         redirect_to trails_path
     end
 

@@ -1,5 +1,6 @@
 <div>
 	<h1>Hike to <%= @hike.trail.name %></h1>
+	<p><%= link_to "Edit Hike", edit_hike_path(@hike)%></p>
 	<h3>
 		Start Date: <%= @hike.start_date %><br>
 		End Date: <%= @hike.end_date %><br>
