@@ -1,15 +1,19 @@
-<h1>User Login</h1>
+<div>
+    <div><h1>User Login</h1></div>
+    <div>
+        <% if flash[:error] %>
+            <p><%= flash[:error] %></p>
+        <% end %>
+    </div>
+    <div>
+        <%= form_for :session do |f| %>
+            <%= f.label :email %>
+            <%= f.text_field :email  %>
 
-<% if flash[:error] %>
-    <p><%= flash[:error] %></p>
-<% end %>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
 
-<%= form_for :session do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email  %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Log In" %>
-<% end %>
+            <%= f.submit "Log In" %>
+        <% end %>
+    </div>
+</div>
