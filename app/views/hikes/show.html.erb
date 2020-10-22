@@ -1,7 +1,31 @@
-<h1>Hike Show</h1>
+<div>
+	<h1>Hike to <%= @hike.trail.name %></h1>
+	<img src="<%= @hike.trail.img_sq_small %>" alt="Trail Picture">
+	<ul>
+		<li>Location: <%= @hike.trail.location %></li>
+		<li>Difficulty: <%= @hike.trail.difficulty %></li>
+		<li>Stars: <%= @hike.trail.stars %></li>
+		<li>Length (miles): <%= @hike.trail.length %></li>
+		<li>Ascent (feet): <%= @hike.trail.ascent %></li>
+		<li>Peak (feet): <%= @hike.trail.high %></li>
+		<li>Condition Status: <%= @hike.trail.condition_status %></li>
+		<li>Condition Details: <%= @hike.trail.condition_details %></li>
+		<li>Condition Date: <%= @hike.trail.condition_date %></li>
+		<li>Summary: <%= @hike.trail.summary %></li>
+		<li><a href="<%= @hike.trail.url %>">Hiking Project Link</a></li>
+	</ul>
+</div>
 
-<ul>
-	<% @hike.items.each do |item| %>
-		<li><%= item.name %></li>
+<!-- DISPLAYS EACH HIKE USER'S ITEMS -->
+<div>
+	<% @hike.users.each do |user| %>
+		<h3><%= user.first_name %>'s Items</h3>
+		<ul>
+		<% @hike.items.each do |item| %>
+			<% if item.user == user %>
+			<li><%= item.name %></li>
+			<% end %>
+		<% end %>
+		</ul>
 	<% end %>
-</ul>
+</div>
