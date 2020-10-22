@@ -1,6 +1,8 @@
 class TrailsController < ApplicationController
     before_action :find_trail, only: [:show]
+    skip_before_action :authorized?, only: [:index]
 
+    #ROOT HOME PAGE
     def index
         @city = params[:city]
         @state = params[:state]
