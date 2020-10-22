@@ -55,7 +55,7 @@ end
     )
 end
 
-@categories = ["Hiking Gear", "Clothing & Footwear", "Food & Water", "Navigation", "Emergency & First Aid", "Health & Hygiene", "Tools & Repair Items", "Day Hiking Extras", "Personal Items"]
+@categories = ["Hiking Gear", "Clothing & Footwear", "Food & Water", "Navigation", "Emergency & First Aid"]
 @count = 0
 10.times do
     Category.create(name: @categories[@count])
