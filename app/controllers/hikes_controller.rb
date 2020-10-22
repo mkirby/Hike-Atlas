@@ -7,6 +7,7 @@ class HikesController < ApplicationController
     end
 
     def show
+        @items_available = Hike.find(@hike.id).items_available(@current_user)
     end
 
     def new

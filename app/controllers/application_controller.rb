@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authorized?
-    flash[:not_authorized] = "You need to be logged in to see that feature." 
-    redirect_to users_path unless logged_in_user?
-  end 
+		flash[:not_authorized] = "You need to be logged in to see that feature." 
+		redirect_to users_path unless logged_in_user?
+	end 
 end

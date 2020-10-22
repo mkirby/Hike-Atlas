@@ -20,7 +20,7 @@
         <nav class="level">
           <div class="level-left">
             <div class="level-item">
-              <h1 class="title is-1">Hike Atlas</h1>
+              <h1 class="title is-1"><%= link_to "Hike Atlas", root_path, method: :get %></h1>
             </div>
           </div>
           <div class="level-right">
@@ -35,6 +35,9 @@
               </p>
               <p class="level-item">
                 <%= link_to("Inventory", items_path, :class => "button is-dark is-outlined") %>
+              </p>
+              <p class="level-item">
+                <%= link_to("Account", user_path(@current_user), :class => "button is-dark is-outlined") %>
               </p>
               <p class="level-item">
                 <%= link_to("Log Out", logout_path, method: :delete, :class => "button is-dark is-outlined") %>

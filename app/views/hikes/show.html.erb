@@ -24,7 +24,16 @@
 <!-- DISPLAYS EACH HIKE USER'S ITEMS -->
 <div>
 	<h2>Pack List</h2>
-	<h4><%= button_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id}, method: :get %></h4>
+
+	<div>
+		<% if @items_available.empty? %>
+			<p>All your items have been added to this hike. You must add more items to your inventory to be able to add them to this hike.
+			<%= button_to "Add Items To Inventory", new_item_path, method: :get %></p>
+		<% else %>
+			<%= button_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id}, method: :get %>
+		<% end %>
+	</div>
+
 	<% @hike.users.each do |user| %>
 		<h4><%= user.first_name %>'s Pack List</h4>
 		<ul>
