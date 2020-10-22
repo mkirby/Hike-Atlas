@@ -24,7 +24,7 @@
 <!-- DISPLAYS EACH HIKE USER'S ITEMS -->
 <div>
 	<h2>Pack List</h2>
-	<h4><%= link_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id} %></h4>
+	<h4><%= button_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id}, method: :get %></h4>
 	<% @hike.users.each do |user| %>
 		<h4><%= user.first_name %>'s Pack List</h4>
 		<ul>

@@ -3,14 +3,20 @@ class HikeItemsController < ApplicationController
 
 	def new
 		@hike_item = HikeItem.new
-		@hike_id = Hike.first.id
-		@items = Hike.first.items_available
+		@hike_id = params[:hike_id]
+		@items = Hike.find(@hike_id).items_available(@current_user)
 	end
 
 	def create
+		@hike_id = params[:hike_item][:hike_id]
+		@items = Hike.find(@hike_id).items_available(@current_user)
 		@hike_item = HikeItem.create(hike_item_params)
 		if @hike_item.valid?
-			redirect_to new_hike_item_path
+			if @items.count > 1
+				redirect_to new_hike_item_path(params: {hike_id: @hike_id})
+			else
+				redirect_to hike_path(@hike_id)
+			end
 		else
 			flash[:errors] = @hike_item.errors.full_messages
 			redirect_to new_hike_item_path
