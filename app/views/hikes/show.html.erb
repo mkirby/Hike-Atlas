@@ -3,7 +3,6 @@
 	<h3>
 		Start Date: <%= @hike.start_date %><br>
 		End Date: <%= @hike.end_date %><br>
-		
 	</h3>
 	<h4>Notes:<br><%= @hike.note %></h4>
 	<img src="<%= @hike.trail.img_sq_small %>" alt="Trail Picture">
@@ -24,8 +23,10 @@
 
 <!-- DISPLAYS EACH HIKE USER'S ITEMS -->
 <div>
+	<h2>Pack List</h2>
+	<h4><%= link_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id} %></h4>
 	<% @hike.users.each do |user| %>
-		<h3><%= user.first_name %>'s Pack List</h3>
+		<h4><%= user.first_name %>'s Pack List</h4>
 		<ul>
 		<% @hike.hike_items.each do |hike_item| %>
 			<% if hike_item.item.user == user %>
