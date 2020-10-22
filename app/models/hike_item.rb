@@ -1,4 +1,4 @@
 class HikeItem < ApplicationRecord
   belongs_to :item
-  belongs_to :hike
+	belongs_to :hike
 end

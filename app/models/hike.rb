@@ -4,5 +4,14 @@ class Hike < ApplicationRecord
   has_many :items, through: :hike_items
   has_many :user_hikes
 	has_many :users, through: :user_hikes
-	accepts_nested_attributes_for :hike_items
+
+	def items_available
+		items_not_added = @current_user.items.select do |item|
+			if self.items.include?(item)
+			else
+				item
+			end
+		end
+	end
+
 end
