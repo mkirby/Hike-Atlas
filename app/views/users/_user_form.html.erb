@@ -1,42 +1,61 @@
-<% if flash[:errors]%>
-    <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
+<div class="errors">
+    <% if flash[:errors]%>
+        <% flash[:errors].each do |error| %>
+            <p><%= error %></p>
+        <% end %>
     <% end %>
-<% end %>
+</div>
 
-<%= form_for @user do |f| %>
-    <%= f.label :first_name, "First Name" %><br>
-    <%= f.text_field :first_name %><br>
 
-    <%= f.label :last_name, "Last Name" %><br>
-    <%= f.text_field :last_name %><br>
+<div class="field">
+    <%= form_for @user do |f| %>
+    <p>Name</p>
+    <div class="field">
+            <div class="control">
+                <%= f.text_field :first_name, :class => 'input', :placeholder => "First Name" %>
+            </div>
+            <div class="control">
+                <%= f.text_field :last_name, :class => 'input', :placeholder => "Last Name" %>
+            </div>
+    </div>
+    
 
-    <p>Log In Details</p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
+        <p>Log In Details</p>
+        <div class="field">
+            <div class="control">
+                <%= f.email_field :email, :class => 'input', :placeholder => "Email" %>
+            </div>
+            <div class="control">
+                <%= f.email_field :email_confirmation, :class => 'input', :placeholder => "Email Confirmation" %>
+            </div>
+            <div class="control">
+                <%= f.password_field :password, :class => 'input', :placeholder => "Password" %>
+            </div>
+            <div class="control">
+                <%= f.password_field :password_confirmation, :class => 'input', :placeholder => "Password Confirmation" %>
+            </div>
+        </div>
 
-    <%= f.label :email_confirmation, "Email Confirmation" %><br>
-    <%= f.email_field :email_confirmation %><br>
+        <p>Contact Details</p>
+        <div class="field">
+            <div class="control">
+                <%= f.telephone_field :phone, :class => 'input', :placeholder => "Phone (123) 456-7890" %>
+            </div>
+        </div>
 
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
+        <p>Emergency Contact Details</p>
+        <div class="field">
+            <div class="control">
+                <%= f.text_field :e_contact_name, :class => 'input', :placeholder => "Emergency Contact Name" %>
+            </div>
+            <div class="control">
+                <%= f.email_field :e_contact_email, :class => 'input', :placeholder => "Emergency Contact Email" %>
+            </div>
+            <div class="control">
+                <%= f.telephone_field :e_contact_phone, :class => 'input', :placeholder => "Emergency Contact Phone" %>
+            </div>
+        </div>
+        <%= f.submit "Submit", :class => 'button is-light is-outlined'  %>
+    <% end %>
+</div> 
 
-    <%= f.label :password_confirmation, "Password Confirmation" %><br>
-    <%= f.password_field :password_confirmation %><br>
-
-    <p>Contact Details</p>
-    <%= f.label :phone, "Phone Number ex. (123) 456-7890" %><br>
-    <%= f.telephone_field :phone %><br>
-
-    <p>Emergency Contact Details</p>
-    <%= f.label :e_contact_name, "Name:" %><br>
-    <%= f.text_field :e_contact_name %><br>
-
-    <%= f.label :e_contact_email, "Email:" %><br>
-    <%= f.email_field :e_contact_email %><br>
-
-    <%= f.label :e_contact_phone, "Phone:" %><br>
-    <%= f.telephone_field :e_contact_phone %><br><br>
-
-    <%= f.submit %>
-<% end %>
