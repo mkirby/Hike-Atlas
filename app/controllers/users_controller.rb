@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-		before_action :find_user, only: [:show, :edit, :update, :destroy]
+		before_action :find_user, only: [:show, :edit, :update]
 		skip_before_action :authorized?, only: [:new, :create]
 
     def show
@@ -31,12 +31,6 @@ class UsersController < ApplicationController
             flash[:errors] = @user.errors.full_messages
             redirect_to edit_user_path(@user)
         end
-    end
-
-    def destroy
-        @user.delete
-        ## verify where we want this to go
-        redirect_to users_path
     end
 
     private
