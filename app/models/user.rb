@@ -36,7 +36,7 @@ class User < ApplicationRecord
             high = self.past_hikes.map { |hike| hike.trail.high }.max
             high.to_s + " Feet"
         else
-            "Create A Hike To Start Tracking Milestones."
+            "Create a Hike to Start Tracking Milestones."
         end
     end
 
@@ -45,7 +45,7 @@ class User < ApplicationRecord
             ascent = self.past_hikes.map { |hike| hike.trail.ascent }.max
             ascent.to_s + " Feet"
         else
-            "Create A Hike To Start Tracking Milestones."
+            "Create a Hike to Start Tracking Milestones."
         end
     end
 end

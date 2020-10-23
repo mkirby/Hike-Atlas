@@ -57,7 +57,7 @@ end
 
 @categories = ["Hiking Gear", "Clothing & Footwear", "Food & Water", "Navigation", "Emergency & First Aid"]
 @count = 0
-10.times do
+5.times do
     Category.create(name: @categories[@count])
     @count += 1
 end

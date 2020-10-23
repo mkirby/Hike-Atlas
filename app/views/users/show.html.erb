@@ -1,21 +1,18 @@
-<h1><%= @user.first_name + " " + @user.last_name%> Profile Page</h1>
+<h1 class="title is-1"><%= @user.first_name + " " + @user.last_name%> Profile Page</h1>
 
-<p>Account Details<br>
-Email: <%= @user.email %><br>
-Phone Number: <%= @user.phone %><br>
-</p>
+<h3 class="title is-3">Account Details</h3>
+<p><b>Email:</b> <%= @user.email %></p><br>
+<p><b>Phone Number:</b> <%= @user.phone %></p><br>
 
-<p>Account Stats<br>
-Total Hikes: <%= @user.total_past_hikes %><br>
-Total Miles: <%= @user.total_miles %><br>
-Highest Peak: <br><%= @user.highest_peak %><br>
-Longest Ascent: <br><%= @user.longest_ascent %>
-</p>
+<h3 class="title is-3">Account Stats</h3>
+<p><b>Total Hikes:</b> <%= @user.total_past_hikes %></p><br>
+<p><b>Total Miles:</b> <%= @user.total_miles %></p><br>
+<p><b>Highest Peak:</b> <br><%= @user.highest_peak %></p><br>
+<p><b>Longest Ascent:</b> <br><%= @user.longest_ascent %></p><br>
 
-<p>Emergency Contact<br>
-<%= @user.e_contact_name %><br>
-<%= @user.e_contact_email %><br>
-<%= @user.e_contact_phone %>
-</p>
+<h3 class="title is-3">Emergency Contact</h3>
+<p><b>Name:</b> <%= @user.e_contact_name %></p>
+<p><b>Email:</b> <%= @user.e_contact_email %></p>
+<p><b>Phone:</b> <%= @user.e_contact_phone %></p>
 
 <p><%= link_to "Update Account Information", edit_user_path(@user) %></p>

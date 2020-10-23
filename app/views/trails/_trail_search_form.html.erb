@@ -1,11 +1,29 @@
-<%= form_tag(trails_path, action: "index", method: "get") do %>
-	<label>City</label><br>
-	<%= text_field_tag(:city, params[:city]) %><br>
-	<label>State</label><br>
-	<%= text_field_tag(:state, params[:state]) %><br>
-	<label>Max Distance (1-100)</label><br>
-	<%= text_field_tag(:max_distance, params[:max_distance]) %><br>
-	<label>Max Results (1-10)</label><br>
-	<%= text_field_tag(:max_results, params[:max_results]) %><br>
-	<%= submit_tag ("Search") %>
-<% end %>
+<div class="field">
+
+	<%= form_tag(trails_path, action: "index", method: "get") do %>
+		
+		<div class="field is-horizontal">
+
+			<div class="control">
+				<%= text_field_tag(:city, params[:city], :class => 'input', :placeholder => "City") %><br>
+			</div>
+
+			<div class="control">
+				<%= text_field_tag(:state, params[:state], :class => 'input', :placeholder => "State") %><br>
+			</div>
+
+			<div class="control">
+				<%= text_field_tag(:max_distance, params[:max_distance], :class => 'input', :placeholder => "Max Distance (100 Miles)") %>
+			</div>
+
+			<div class="control">
+				<%= text_field_tag(:max_results, params[:max_results], :class => 'input', :placeholder => "Max Results (1-10)") %>
+			</div>
+
+			<div class="control">
+				<%= submit_tag ("Search"), :class => 'button is-light is-outlined' %>
+			</div>
+
+		</div>
+	<% end %>
+</div>

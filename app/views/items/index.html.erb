@@ -1,17 +1,28 @@
-<%= button_to "Add Item To Inventory", new_item_path, method: :get %>
+<%= button_to "Add Item To Inventory", new_item_path, method: :get %><br>
+
 <% @categories.each do |category| %>
-    <h2><%= category.name %></h2>
+    <h3 class="title is-3" id="cat_name"><%= category.name %></h3>
 
     <% cat_items = @items.select { |item| item.category == category} %>
-        <% cat_items.each do |item| %>
-            <h3>Name: <%= item.name %><%= button_to "Edit Item", edit_item_path(item), method: :get %></h3>
-            <ul>
-							<li>Description: <%= item.description %></li>
-							<li>Weight: <%= item.weight %> lbs.</li>
-							<li>Cost: $<%= item.cost %></li>
-							<li>Condition: <%= item.condition %></li>
-							<li>Note: <%= item.note %></li>
-							<li><a href="<%= item.url %>">Item Link</a></li>
-						</ul>
-        <% end %>
+
+
+				<% if cat_items.empty? %>
+					<h5 class="title is-5" id="empty_cat">This category currently has no items.</h5>
+
+				<% else %>
+
+					<% cat_items.each do |item| %>
+							<h5 class="title is-5" id="item_name"><b>Name:</b> <%= item.name %><%= button_to "Edit Item", edit_item_path(item), method: :get %></h5>
+							<div class="content">
+								<ul id="item_attr">
+									<li><b>Description:</b> <%= item.description %></li>
+									<li><b>Weight:</b> <%= item.weight %> lbs.</li>
+									<li><b>Cost:</b> $<%= item.cost %></li>
+									<li><b>Condition:</b> <%= item.condition %></li>
+									<li><b>Note:</b> <%= item.note %></li>
+									<li><a href="<%= item.url %>">Item Link</a></li>
+								</ul>
+							</div>
+					<% end %>
+	<% end %>
 <% end %>

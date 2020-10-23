@@ -1,9 +1,8 @@
-//this setting puts borders around every single element so we can view the layout
-//comment this out to return to normal
+//this setting puts borders around every single element so we can view the layoutcomment this out to return to normal
+
 // * {
 //     border: 1px solid black
 // }
-
 
 body {
     display:flex;
@@ -12,23 +11,100 @@ body {
     height:100vh;
 }
 .header {
-		background-color:#343d3d;
-		background-image: url("dark_woods_banner.jpg");
-		background-size: cover;
-		padding:2rem 1.5rem;
+    background-color:#343d3d;
+    background-image: url("dark_woods_banner.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50% 50%;
+    padding:2rem 1.5rem;
 }
 
+.header a:link {
+    text-decoration: none;
+    color: #20a617
+}
 .header a:hover {
     text-decoration: none;
+    color: #20a617
+}
+.header a:visited {
+    text-decoration: none;
+    color: #20a617
+}
+.header a:active {
+    text-decoration: none;
+    color: #20a617
 }
 
+a:link, a:visited, a:active {
+    color: #20a617;
+}
 a:hover {
-    text-decoration: none
+    color: #20a617;
+    text-decoration: underline;
 }
 
 .section {
     display:flex;
     flex:1 0 auto;
-		background-color: #1f2525;
-		color: white;
+    background-color: #1f2525;
+    color: white;
+}
+
+.is-1, .is-2, .is-3, .is-4, .is-5 {
+    color: white;
+}
+
+.label {
+	color: white;
+}
+
+.input {
+    width: 200px;
+    display: block;
+}
+
+.control {
+    margin: 5px;
+}
+
+.field {
+    justify-content: center;
+}
+
+#user_login {
+    justify-content: center;
+    align-content: center;
+}
+
+#errors p {
+    color: red;
+    justify-content: center;
+}
+
+#empty_cat {
+    margin-left: 50px
+}
+
+#item_name {
+    margin-left: 50px
+}
+
+#item_attr {
+    margin-left: 100px
+}
+
+#cat_name {
+    text-decoration: underline;
+}
+
+.home-features p{
+    color: #20a617;
+}
+
+.sign-up-splash {
+    background-color: red;
+    padding: 25px 0;
+    margin: 0 100px;
+    display: block;
 }
