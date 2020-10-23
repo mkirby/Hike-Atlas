@@ -1,23 +1,33 @@
-<%= button_to "Add Item To Inventory", new_item_path, method: :get, :class => "button is-light is-outlined" %><br>
+<%= button_to "Add Items To Inventory", new_item_path, method: :get, :class => "button is-light is-outlined" %><br>
+
 <% @categories.each do |category| %>
-    <h3 class="title is-3 underline"><%= category.name %></h3>
+
+    <h5 class="title is-5 underline"><%= category.name %></h5>
+
     <% cat_items = @items.select { |item| item.category == category} %>
+
 		<% if cat_items.empty? %>
-			<h5 class="title is-5" id="empty_cat">This category currently has no items.</h5>
+			<p id="empty_cat">This category currently has no items.</p>
+
 		<% else %>
 			<% cat_items.each do |item| %>
-				<h5 class="title is-5" id="item_name"><b>Name:</b> <%= item.name %></h5>
-				<div class="indent_50"><%= button_to "Edit Item", edit_item_path(item), method: :get, :class => "button is-light is-outlined" %></div>
+				<p id="item_n"><%= item.name %></p>
+
+				<div class="indent_50"><%= button_to "Edit Item", edit_item_path(item), method: :get, :class => "button is-light is-outlined is-small" %></div>
+				
 				<div class="content">
+
 					<ul id="item_attr">
 						<li><b>Description:</b> <%= item.description %></li>
 						<li><b>Weight:</b> <%= item.weight %> lbs.</li>
 						<li><b>Cost:</b> $<%= item.cost %></li>
 						<li><b>Condition:</b> <%= item.condition %></li>
 						<li><b>Note:</b> <%= item.note %></li>
-						<li><a href="<%= item.url %>" target="_blank">Item Link</a></li>
+						<li><a href="<%= item.url %>" target="_blank">Store Link</a></li>
 					</ul>
 				</div>
+
+
 		<% end %>
 	<% end %>
 <% end %>
