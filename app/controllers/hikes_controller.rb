@@ -58,7 +58,7 @@ class HikesController < ApplicationController
         #delete the item
 
         @hike.delete
-        redirect_to trails_path
+        redirect_to hikes_path
     end
 
     private

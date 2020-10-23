@@ -1,2 +1,3 @@
 <h3 class="title is-3 underline">Add Items to Hike</h3>
-<%= render "hike_items_form" %>
+<%= render "hike_items_form" %><br>
+<%= button_to "Return to Hike", hike_path(@hike_id), method: :get, :class => "button is-light is-outlined" %>
