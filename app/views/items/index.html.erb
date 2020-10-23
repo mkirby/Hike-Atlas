@@ -7,7 +7,7 @@
     <% cat_items = @items.select { |item| item.category == category} %>
 
 		<% if cat_items.empty? %>
-			<p id="empty_cat">This category currently has no items.</p>
+			<p id="empty_cat">This category currently has no items.</p><br>
 
 		<% else %>
 			<% cat_items.each do |item| %>
