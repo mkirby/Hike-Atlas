@@ -4,31 +4,33 @@
     <% end %>
 <% end %>
 
-<%= form_for @item do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
+<div class="field">
+	<%= form_for @item do |f| %>
+			<%= f.label :name %><br>
+			<div class="control"><%= f.text_field :name, :class => 'input', :placeholder => "Name" %></div><br>
 
-    <%= f.label :description %><br>
-    <%= f.text_field :description %><br>
+			<%= f.label :description %><br>
+			<div class="control"><%= f.text_field :description, :class => 'input', :placeholder => "Description" %></div><br>
 
-    <%= f.label :weight %><br>
-    <%= f.number_field :weight %><br>
+			<%= f.label :weight %><br>
+			<div class="control"><%= f.number_field :weight, :class => 'input', :placeholder => "Weight" %></div><br>
 
-    <%= f.label :cost %><br>
-    <%= f.number_field :cost %><br>
+			<%= f.label :cost %><br>
+			<div class="control"><%= f.number_field :cost, :class => 'input', :placeholder => "Cost" %></div><br>
 
-    <%= f.label :condition %><br>
-    <%= f.text_field :condition %><br>
+			<%= f.label :condition %><br>
+			<div class="control"><%= f.text_field :condition, :class => 'input', :placeholder => "Condition" %></div><br>
 
-    <%= f.label :note %><br>
-    <%= f.text_field :note %><br>
+			<%= f.label :note %><br>
+			<div class="control"><%= f.text_area :note, :class => 'input', :placeholder => "Note" %></div><br>
 
-		<%= f.label :url, "URL" %><br>
-    <%= f.url_field :url, :placeholder => "https://www.example.com" %><br>
+			<%= f.label :url, "URL" %><br>
+			<div class="control"><%= f.url_field :url, :class => 'input', :placeholder => "https://www.example.com" %></div><br>
 
-		<%= f.label :category_id %><br>
-		<%= f.collection_select :category_id, @categories, :id, :name %>
+			<%= f.label :category_id %><br>
+			<div class="select select_drop"><%= f.collection_select :category_id, @categories, :id, :name %></div><br>
 
-    <%= f.hidden_field(:user_id, :value => @current_user.id) %><br>
-    <%= f.submit %>
-<% end %>
+			<%= f.hidden_field(:user_id, :value => @current_user.id) %><br>
+			<div class="control"><%= f.submit "Save Item", :class => 'button is-light is-outlined' %></div>
+	<% end %>
+</div>

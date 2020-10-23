@@ -1,10 +1,8 @@
 <div>
     <h3 class="title is-3 underline">Upcoming Hikes</h3>
-    <ul>
         <% @upcoming_hikes.each do |hike| %>
-            <li><%= hike.start_date%> - <%= link_to hike.trail.name, hike_path(hike) %></li>
+            <p><%= hike.start_date%> - <%= link_to hike.trail.name, hike_path(hike) %></p>
         <% end%>
-    </ul>    
 </div>
 <br>
 <div>

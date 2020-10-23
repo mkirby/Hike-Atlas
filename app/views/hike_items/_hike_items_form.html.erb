@@ -2,7 +2,7 @@
 
     <h5 class="title is-5"><%= f.label "Available Items" %></h5>
 
-    <div class="select">
+    <div class="select select_drop">
         <%= f.collection_select :item_id, @items, :id, :name %>
     </div><br>
 
