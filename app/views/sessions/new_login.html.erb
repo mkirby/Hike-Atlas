@@ -1,32 +1,23 @@
 <div class="sign-up-splash" id="user_login" align=center>
     <h3 class= "title is-3">User Portal</h3>
-
     <div class="field">
-
         <%= form_for :session do |f| %>
-
         <div class="field is-horizontal">
-            <div class="control">
+            <div class="control-login">
                 <%= f.text_field :email, :class => 'input', :placeholder => "Email" %>
             </div>
-
-            <div class="control">
-            <%= f.password_field :password, :class => 'input', :placeholder => "Password"%>
+            <div class="control-login">
+            <%= f.password_field :password, :class => 'input', :placeholder => "Password" %>
             </div>
-
-            <div class="control">
+            <div class="control-login">
             <%= f.submit "Log In", :class => 'button is-light is-outlined' %>
             </div>
-
         </div>
         <% end %>
-        
     </div>
-
     <div id="errors">
         <% if flash[:error] %>
             <p><%= flash[:error] %></p>
         <% end %>
     </div>
-
 </div>
