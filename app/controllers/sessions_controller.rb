@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     #compare passwords
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to trails_path
     else 
       flash[:error] = "Password or Email did not match"
       redirect_to new_login_path

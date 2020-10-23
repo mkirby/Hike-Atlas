@@ -1,10 +1,12 @@
 <div>
-	<h2 class="title is-2"><%= @hike.trail.name %></h2><br>
+	<h3 class="title is-3"><%= @hike.trail.name %></h3><br>
 </div>
 
-<div>
+<div class="rounded-pics">
 	<img src="<%= @hike.trail.img_medium %>" alt="Trail Picture from <%= @hike.trail.name %> ">
 </div>
+
+<br>
 
 <div>
 	<h5 class="title is-5">
@@ -27,7 +29,7 @@
 		<li><b>Condition Details: </b><%= @hike.trail.condition_details %></li>
 		<li><b>Condition Date: </b><%= @hike.trail.condition_date %></li>
 		<li><b>Summary: </b><br><%= @hike.trail.summary %></li>
-		<li><a href="<%= @hike.trail.url %>"><b>Hiking Project Link</b></a></li><br>
+		<li><a href="<%= @hike.trail.url %>" target="_blank"><b>Hiking Project Link</b></a></li><br>
 	</ul>
 </div>
 
@@ -43,32 +45,26 @@
 <br><br>
 
 <div>
-	<h2 class="title is-2">Equipment Pack List</h2>
+	<h3 class="title is-3">Equipment Pack List</h3>
 </div>
+<br>
 
 <!-- DISPLAYS EACH HIKE USER'S ITEMS -->
 
 <div class="user-items">
-	
 	<% @hike.users.each do |user| %>
-
 		<div class="user-item">
 			<h4><%= user.first_name %>'s Pack List</h4>
 			<div class="content">
-				
-					<% @hike.hike_items.each do |hike_item| %>
-						<% if hike_item.item.user == user %>
-							<label class="checkbox">
-								<%= hike_item.item.name %> <%= link_to "Remove Item", hike_item_path(hike_item), method: :delete %>
-							</label>
-						<% end %>
+				<% @hike.hike_items.each do |hike_item| %>
+					<% if hike_item.item.user == user %>
+						<label class="checkbox">
+							<input type="checkbox">
+							<%= hike_item.item.name %> <%= link_to "Remove Item", hike_item_path(hike_item), method: :delete %>
+						</label>
 					<% end %>
-				
+				<% end %>
 			</div>
 		</div>
-
 	<% end %>
-
-
-
 </div>

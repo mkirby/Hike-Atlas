@@ -11,16 +11,16 @@
 			<% end %>
 		</div>
 		<div>
-			<h2 class="title is-2">Join Hike Atlas Today</h2>
-			<p>Search For Hiking Trails Around the World</p><br>
-			<p>Schedule Upcoming Hiking Trips</p><br>
-			<p>Track All Your Hiking Gear</p><br>
-			<p>Add Gear Pack Lists To Your Hikes</p><br>
+			<h2 class="title is-2 underline">Join Hike Atlas Today!</h2>
+			<p><b>Search For Hiking Trails Around the USA</b></p><br>
+			<p><b>Schedule Upcoming Hiking Trips</b></p><br>
+			<p><b>Track All Your Hiking Gear</b></p><br>
+			<p><b>Add Gear Pack Lists To Your Hikes</b></p><br>
 		</div>
-		<br>
-			<%= button_to "Sign Up", new_user_path, method: :get, :class => "button is-light is-outlined" %>
-			<br>
-			<%= button_to "Log In", new_login_path, method: :get, :class => "button is-light is-outlined" %>
+		<div class="signup-splash-buttons">
+			<%= button_to "Sign Up", new_user_path, method: :get, :class => "button is-light is-outlined is-large" %>
+			<%= button_to "Log In", new_login_path, method: :get, :class => "button is-light is-outlined is-large" %>
+		</div>
 	<% end %>
 </div>
 
@@ -32,7 +32,7 @@
 				<h6 class="title is-6"><%= trail["name"] %></h6>
 				<img src="<%= trail["imgMedium"] %>" alt="Trail Picture from <%= trail["name"] %> ">
 				<ul>
-					<li><a href="<%= trail["url"] %>">Hiking Project Link</a></li>
+					<li><a href="<%= trail["url"] %>" target="_blank">Hiking Project Link</a></li>
 					<li><b>Location: </b><%= trail["location"] %></li>
 					<li><b>Difficulty: </b><%= trail["difficulty"] %></li>
 					<li><b>Stars: </b><%= trail["stars"] %></li>

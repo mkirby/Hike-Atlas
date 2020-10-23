@@ -107,6 +107,14 @@ a:hover {
     max-width: 1000px;
 }
 
+.signup-splash-buttons {
+    display: inline-flex;
+}
+
+.signup-splash-buttons .button {
+    margin: 0 10px;
+}
+
 .search-results {
     display: flex;
     flex-flow: row wrap;
@@ -135,16 +143,19 @@ a:hover {
 .user-items {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 40px;
+    justify-content: flex-start;
 }
 
 .user-item {
     border: 1px solid white;
     background-color: #3f693c;
-    margin: 10px;
     padding: 20px;
     width: 400px;
     min-width: 400px;
     border-radius: 10px;
+}
+
+.rounded-pics img {
+    border-radius: 50px;
+    border: 3px solid white;
 }
