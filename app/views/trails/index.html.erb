@@ -44,7 +44,7 @@
 					<li><b>Condition Date: </b><%= trail["conditionDate"] %></li>
 					<li><b>Summary: </b><br><%= trail["summary"] %></li><br>
 				</ul>
-				<%= button_to "Plan a Hike", new_hike_path, params: {api_id: trail["id"]}, method: :get, :class => "button is_light is_outlined" %><br>
+				<%= button_to "Plan a Hike", new_hike_path, params: {api_id: trail["id"]}, method: :get, :class => "button is-light is-outlined" %><br>
 			</div>
 		<% end %>
 	<% end %>

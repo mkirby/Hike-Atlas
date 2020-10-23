@@ -24,7 +24,7 @@
     <%= f.text_field :note %><br>
 
 		<%= f.label :url, "URL" %><br>
-    <%= f.text_field :url %><br>
+    <%= f.url_field :url, :placeholder => "https://www.example.com" %><br>
 
 		<%= f.label :category_id %><br>
 		<%= f.collection_select :category_id, @categories, :id, :name %>
