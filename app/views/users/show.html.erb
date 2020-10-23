@@ -1,18 +1,21 @@
-<h1 class="title is-1"><%= @user.first_name + " " + @user.last_name%> Profile Page</h1>
+<h1 class="title is-1"><%= @user.first_name + " " + @user.last_name%>'s Profile Page</h1>
 
-<h3 class="title is-3">Account Details</h3>
-<p><b>Email:</b> <%= @user.email %></p><br>
-<p><b>Phone Number:</b> <%= @user.phone %></p><br>
+<p><%= button_to "Update Account Information", edit_user_path(@user), method: :get, :class => "button is_light is_outlined" %></p><br>
 
-<h3 class="title is-3">Account Stats</h3>
-<p><b>Total Hikes:</b> <%= @user.total_past_hikes %></p><br>
-<p><b>Total Miles:</b> <%= @user.total_miles %></p><br>
-<p><b>Highest Peak:</b> <br><%= @user.highest_peak %></p><br>
-<p><b>Longest Ascent:</b> <br><%= @user.longest_ascent %></p><br>
+<div class="user_show">
+	<h3 class="title is-3 user_cat">Account Details</h3>
+	<p><b>Email:</b> <%= @user.email %></p><br>
+	<p><b>Phone Number:</b> <%= @user.phone %></p><br>
 
-<h3 class="title is-3">Emergency Contact</h3>
-<p><b>Name:</b> <%= @user.e_contact_name %></p>
-<p><b>Email:</b> <%= @user.e_contact_email %></p>
-<p><b>Phone:</b> <%= @user.e_contact_phone %></p>
+	<h3 class="title is-3 user_cat">Account Stats</h3>
+	<p><b>Total Hikes:</b> <%= @user.total_past_hikes %></p><br>
+	<p><b>Total Miles:</b> <%= @user.total_miles %></p><br>
+	<p><b>Highest Peak:</b> <br><%= @user.highest_peak %></p><br>
+	<p><b>Longest Ascent:</b> <br><%= @user.longest_ascent %></p><br>
 
-<p><%= link_to "Update Account Information", edit_user_path(@user) %></p>
+	<h3 class="title is-3 user_cat">Emergency Contact</h3>
+	<p><b>Name:</b> <%= @user.e_contact_name %></p>
+	<p><b>Email:</b> <%= @user.e_contact_email %></p>
+	<p><b>Phone:</b> <%= @user.e_contact_phone %></p>
+
+</div>

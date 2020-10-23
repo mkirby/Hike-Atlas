@@ -4,16 +4,18 @@
     <% end %>
 <% end %>
 
-<%= form_for @hike do |f| %>
-    <%= f.label :start_date, "Start Date" %><br>
-    <%= f.date_field :start_date %><br>
+<div class="field">
+  <%= form_for @hike do |f| %>
+      <%= f.label :start_date, "Start Date" %><br>
+      <div><%= f.date_field :start_date %><div><br>
 
-		<%= f.label :end_date, "End Date" %><br>
-    <%= f.date_field :end_date %><br>
+      <%= f.label :end_date, "End Date" %><br>
+      <div><%= f.date_field :end_date %><div><br>
 
-		<%= f.label :note %><br>
-		<%= f.text_area :note %><br>
+      <%= f.label :note %><br>
+      <%= f.text_area :note %><br>
 
-    <%= f.hidden_field(:trail_id, :value => @trail_id) %><br>
-    <%= f.submit %>
-<% end %>
+      <%= f.hidden_field(:trail_id, :value => @trail_id) %><br>
+      <div><%= f.submit "Hike It!", :class => 'button is-light is-outlined'%></div><br>
+  <% end %>
+</div>

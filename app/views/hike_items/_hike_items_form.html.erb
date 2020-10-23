@@ -1,13 +1,19 @@
-<% if flash[:errors]%>
-    <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-    <% end %>
-<% end %>
-
 <%= form_for @hike_item do |f| %>
-		<%= f.label "Items" %><br>
-		<%= f.collection_select :item_id, @items, :id, :name %><br>
+
+
+    <h5 class="title is-5"><%= f.label "Available Items" %></h5>
+
+
+    <div class="select">
+        <%= f.collection_select :item_id, @items, :id, :name %>
+    </div><br>
+
 
     <%= f.hidden_field(:hike_id, :value => @hike_id) %><br>
-    <%= f.submit %>
+
+
+    <div class="control">
+        <%= f.submit "Add to Hike", :class => 'button is-light is-outlined' %>
+    </div>
+
 <% end %>

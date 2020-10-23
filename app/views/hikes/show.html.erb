@@ -1,48 +1,74 @@
 <div>
-	<h1>Hike to <%= @hike.trail.name %></h1>
-	<p><%= link_to "Edit Hike", edit_hike_path(@hike)%></p>
-	<h3>
+	<h2 class="title is-2"><%= @hike.trail.name %></h2><br>
+</div>
+
+<div>
+	<img src="<%= @hike.trail.img_medium %>" alt="Trail Picture from <%= @hike.trail.name %> ">
+</div>
+
+<div>
+	<h5 class="title is-5">
 		Start Date: <%= @hike.start_date %><br>
 		End Date: <%= @hike.end_date %><br>
-	</h3>
-	<h4>Notes:<br><%= @hike.note %></h4>
-	<img src="<%= @hike.trail.img_sq_small %>" alt="Trail Picture">
+	</h5>
+	<h5 class="title is-5">Notes: <%= @hike.note %></h5>
+</div>
+<br>
+
+<div>
 	<ul>
-		<li>Location: <%= @hike.trail.location %></li>
-		<li>Difficulty: <%= @hike.trail.difficulty %></li>
-		<li>Stars: <%= @hike.trail.stars %></li>
-		<li>Length (miles): <%= @hike.trail.length %></li>
-		<li>Ascent (feet): <%= @hike.trail.ascent %></li>
-		<li>Peak (feet): <%= @hike.trail.high %></li>
-		<li>Condition Status: <%= @hike.trail.condition_status %></li>
-		<li>Condition Details: <%= @hike.trail.condition_details %></li>
-		<li>Condition Date: <%= @hike.trail.condition_date %></li>
-		<li>Summary: <%= @hike.trail.summary %></li>
-		<li><a href="<%= @hike.trail.url %>">Hiking Project Link</a></li>
+		<li><b>Location: </b><%= @hike.trail.location %></li>
+		<li><b>Difficulty: </b><%= @hike.trail.difficulty %></li>
+		<li><b>Stars: </b><%= @hike.trail.stars %></li>
+		<li><b>Length (Miles): </b><%= @hike.trail.length %></li>
+		<li><b>Ascent (Feet): </b><%= @hike.trail.ascent %></li>
+		<li><b>Peak (Feet): </b><%= @hike.trail.high %></li>
+		<li><b>Condition Status: </b><%= @hike.trail.condition_status %></li>
+		<li><b>Condition Details: </b><%= @hike.trail.condition_details %></li>
+		<li><b>Condition Date: </b><%= @hike.trail.condition_date %></li>
+		<li><b>Summary: </b><br><%= @hike.trail.summary %></li>
+		<li><a href="<%= @hike.trail.url %>"><b>Hiking Project Link</b></a></li><br>
 	</ul>
 </div>
 
-<!-- DISPLAYS EACH HIKE USER'S ITEMS -->
-<div>
-	<h2>Pack List</h2>
-
-	<div>
-		<% if @items_available.empty? %>
-			<p>All your items have been added to this hike. You must add more items to your inventory to be able to add them to this hike.
-			<%= button_to "Add Items To Inventory", new_item_path, method: :get %></p>
-		<% else %>
-			<%= button_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id}, method: :get %>
-		<% end %>
-	</div>
-
-	<% @hike.users.each do |user| %>
-		<h4><%= user.first_name %>'s Pack List</h4>
-		<ul>
-		<% @hike.hike_items.each do |hike_item| %>
-			<% if hike_item.item.user == user %>
-			<li><%= hike_item.item.name %> <%= link_to "Remove Item", hike_item_path(hike_item), method: :delete %></li>
-			<% end %>
-		<% end %>
-		</ul>
+<div class="hike-nav-menu">
+	<%= button_to "Edit Hike", edit_hike_path(@hike), method: :get, :class => "button is-light is-outlined"%>
+	<% if @items_available.empty? %>
+		<%= button_to "Add Items To Inventory", new_item_path, method: :get, :class => "button is-light is-outlined" %></p>
+	<% else %>
+		<%= button_to "Add Items To Pack List", new_hike_item_path, params: {hike_id: @hike.id}, method: :get, :class => "button is-light is-outlined" %>
 	<% end %>
+</div>
+
+<br><br>
+
+<div>
+	<h2 class="title is-2">Equipment Pack List</h2>
+</div>
+
+<!-- DISPLAYS EACH HIKE USER'S ITEMS -->
+
+<div class="user-items">
+	
+	<% @hike.users.each do |user| %>
+
+		<div class="user-item">
+			<h4><%= user.first_name %>'s Pack List</h4>
+			<div class="content">
+				
+					<% @hike.hike_items.each do |hike_item| %>
+						<% if hike_item.item.user == user %>
+							<label class="checkbox">
+								<%= hike_item.item.name %> <%= link_to "Remove Item", hike_item_path(hike_item), method: :delete %>
+							</label>
+						<% end %>
+					<% end %>
+				
+			</div>
+		</div>
+
+	<% end %>
+
+
+
 </div>

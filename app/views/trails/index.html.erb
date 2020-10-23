@@ -1,64 +1,54 @@
 <!-- ROOT HOME PAGE-->
 <div class="sign-up-splash" align=center>
-
 	<% if @current_user %>
-
-		<h1>Welcome, <%= @current_user.first_name + " " + @current_user.last_name%>!</h1>
-
-		<h2>Search For Trails</h2>
-
+		<h3 class="title is-3">Search For Trails</h3>
+		<br>
 		<%= render 'trail_search_form' %>
-		
-		<!-- TRAIL SEARCH RESULTS -->
-		<% if @api_data != nil %>
-			<% @api_data["trails"].each do |trail| %>
-				<section class="section">
-					<ul>
-						<li><img src="<%= trail["imgSqSmall"] %>" alt="Trail Picture"></li>
-						<li>Name: <%= trail["name"] %></li>
-						<li>Location: <%= trail["location"] %></li>
-						<li>Difficulty: <%= trail["difficulty"] %></li>
-						<li>Stars: <%= trail["stars"] %></li>
-						<li>Length (miles): <%= trail["length"] %></li>
-						<li>Ascent (feet): <%= trail["ascent"] %></li>
-						<li>Peak (feet): <%= trail["high"] %></li>
-						<li>Condition Status: <%= trail["conditionStatus"] %></li>
-						<li>Condition Details: <%= trail["conditionDetails"] %></li>
-						<li>Condition Date: <%= trail["conditionDate"] %></li>
-						<li>Summary: <%= trail["summary"] %></li>
-						<li><a href="<%= trail["url"] %>">Hiking Project Link</a></li>
-						<li><%= button_to "Plan a New Hike to #{trail["name"]}", new_hike_path, params: {api_id: trail["id"]}, method: :get %></li>
-					</ul>
-				</section>
-			<% end %>
-		<% end %>
-
-
 	<% else %>
 		<div id="errors">
 			<% if flash[:not_authorized] %>
 				<p><%= flash[:not_authorized] %></p>
 			<% end %>
 		</div>
-
-		<div class="home-features">
+		<div>
 			<h2 class="title is-2">Join Hike Atlas Today</h2>
-			
 			<p>Search For Hiking Trails Around the World</p><br>
 			<p>Schedule Upcoming Hiking Trips</p><br>
 			<p>Track All Your Hiking Gear</p><br>
 			<p>Add Gear Pack Lists To Your Hikes</p><br>
-			
 		</div>
 		<br>
-			<%= button_to "Sign Up", new_user_path, method: :get, :class => "button is-light is-outlined inline-buttons" %>
+			<%= button_to "Sign Up", new_user_path, method: :get, :class => "button is-light is-outlined" %>
 			<br>
-			<%= button_to "Log In", new_login_path, method: :get, :class => "button is-light is-outlined inline-buttons" %>
+			<%= button_to "Log In", new_login_path, method: :get, :class => "button is-light is-outlined" %>
 	<% end %>
-	<% end %>
-
 </div>
 
+<!-- TRAIL SEARCH RESULTS -->
+<div class="search-results">
+	<% if @api_data != nil %>
+		<% @api_data["trails"].each do |trail| %>
+			<div class="search-results-trail">
+				<h6 class="title is-6"><%= trail["name"] %></h6>
+				<img src="<%= trail["imgMedium"] %>" alt="Trail Picture from <%= trail["name"] %> ">
+				<ul>
+					<li><a href="<%= trail["url"] %>">Hiking Project Link</a></li>
+					<li><b>Location: </b><%= trail["location"] %></li>
+					<li><b>Difficulty: </b><%= trail["difficulty"] %></li>
+					<li><b>Stars: </b><%= trail["stars"] %></li>
+					<li><b>Length (Miles): </b><%= trail["length"] %></li>
+					<li><b>Ascent (Feet): </b><%= trail["ascent"] %></li>
+					<li><b>Peak (Feet): </b><%= trail["high"] %></li>
+					<li><b>Condition Status: </b><%= trail["conditionStatus"] %></li>
+					<li><b>Condition Details: </b><%= trail["conditionDetails"] %></li>
+					<li><b>Condition Date: </b><%= trail["conditionDate"] %></li>
+					<li><b>Summary: </b><br><%= trail["summary"] %></li><br>
+				</ul>
+				<%= button_to "Plan a Hike", new_hike_path, params: {api_id: trail["id"]}, method: :get, :class => "button is_light is_outlined" %><br>
+			</div>
+		<% end %>
+	<% end %>
+</div>
 
 
 

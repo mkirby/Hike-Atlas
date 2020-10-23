@@ -21,19 +21,19 @@ body {
 
 .header a:link {
     text-decoration: none;
-    color: #20a617
+    color: white;
 }
 .header a:hover {
     text-decoration: none;
-    color: #20a617
+    color: white
 }
 .header a:visited {
     text-decoration: none;
-    color: #20a617
+    color: white;
 }
 .header a:active {
     text-decoration: none;
-    color: #20a617
+    color: white;
 }
 
 a:link, a:visited, a:active {
@@ -51,7 +51,7 @@ a:hover {
     color: white;
 }
 
-.is-1, .is-2, .is-3, .is-4, .is-5 {
+.is-1, .is-2, .is-3, .is-4, .is-5, .is-6{
     color: white;
 }
 
@@ -82,11 +82,7 @@ a:hover {
     justify-content: center;
 }
 
-#empty_cat {
-    margin-left: 50px
-}
-
-#item_name {
+#empty_cat, #item_name, .indent_50 {
     margin-left: 50px
 }
 
@@ -94,17 +90,61 @@ a:hover {
     margin-left: 100px
 }
 
-#cat_name {
+#cat_name, .user_cat, .underline {
     text-decoration: underline;
 }
 
-.home-features p{
-    color: #20a617;
+.user_show p {
+    margin-left: 50px
 }
 
 .sign-up-splash {
-    background-color: red;
-    padding: 25px 0;
-    margin: 0 100px;
-    display: block;
+    background-color: #3f693c;
+    padding: 25px;
+    margin: 0 auto;
+    border-radius: 5px;
+    min-width: 400px;
+    max-width: 1000px;
+}
+
+.search-results {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.search-results-trail {
+    border: 1px solid white;
+    background-color: #3f693c;
+    margin: 10px;
+    padding: 20px;
+    width: 400px;
+    min-width: 400px;
+    border-radius: 10px;
+}
+
+.hike-nav-menu {
+    display: inline-flex;
+}
+
+.hike-nav-menu .button{
+    margin: 0 5px 0 0;
+}
+
+.user-items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.user-item {
+    border: 1px solid white;
+    background-color: #3f693c;
+    margin: 10px;
+    padding: 20px;
+    width: 400px;
+    min-width: 400px;
+    border-radius: 10px;
 }
