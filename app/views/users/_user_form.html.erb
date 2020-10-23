@@ -46,13 +46,13 @@
         <p>Emergency Contact Details</p>
         <div class="field">
             <div class="control">
-                <%= f.text_field :e_contact_name, :class => 'input', :placeholder => "Emergency Contact Name" %>
+                <%= f.text_field :e_contact_name, :class => 'input', :placeholder => "Name" %>
             </div>
             <div class="control">
-                <%= f.email_field :e_contact_email, :class => 'input', :placeholder => "Emergency Contact Email" %>
+                <%= f.email_field :e_contact_email, :class => 'input', :placeholder => "Email" %>
             </div>
             <div class="control">
-                <%= f.telephone_field :e_contact_phone, :class => 'input', :placeholder => "Emergency Contact Phone" %>
+                <%= f.telephone_field :e_contact_phone, :class => 'input', :placeholder => "Phone" %>
             </div>
         </div>
         <%= f.submit "Submit", :class => 'button is-light is-outlined'  %>
