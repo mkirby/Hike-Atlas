@@ -1,3 +1,5 @@
+<h3 class="title is-3 underline">Inventory</h3>
+
 <%= button_to "Add Items To Inventory", new_item_path, method: :get, :class => "button is-light is-outlined" %><br>
 
 <% @categories.each do |category| %>
@@ -11,7 +13,7 @@
 
 		<% else %>
 			<% cat_items.each do |item| %>
-				<p id="item_n"><%= item.name %></p>
+				<p id="item_n"><b>Name:<b> <%= item.name %></p><br>
 
 				<div class="indent_50"><%= button_to "Edit Item", edit_item_path(item), method: :get, :class => "button is-light is-outlined is-small" %></div>
 				

@@ -16,7 +16,7 @@
             </div>
             <div class="control">
                 <%= f.text_field :last_name, :class => 'input', :placeholder => "Last Name" %>
-            </div>
+            </div><br>
     </div>
     
 
@@ -33,14 +33,14 @@
             </div>
             <div class="control">
                 <%= f.password_field :password_confirmation, :class => 'input', :placeholder => "Password Confirmation" %>
-            </div>
+            </div><br>
         </div>
 
         <p>Contact Details</p>
         <div class="field">
             <div class="control">
                 <%= f.telephone_field :phone, :class => 'input', :placeholder => "Phone (123) 456-7890" %>
-            </div>
+            </div><br>
         </div>
 
         <p>Emergency Contact Details</p>
@@ -53,7 +53,7 @@
             </div>
             <div class="control">
                 <%= f.telephone_field :e_contact_phone, :class => 'input', :placeholder => "Emergency Contact Phone" %>
-            </div>
+            </div><br>
         </div>
         <%= f.submit "Submit", :class => 'button is-light is-outlined'  %>
     <% end %>

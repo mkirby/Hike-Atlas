@@ -1,13 +1,22 @@
 <div>
     <h3 class="title is-3 underline">Upcoming Hikes</h3>
-        <% @upcoming_hikes.each do |hike| %>
-            <p><%= hike.start_date%> - <%= link_to hike.trail.name, hike_path(hike) %></p>
-        <% end%>
+        <% if @upcoming_hikes.empty? %>
+					<p>You have no upcoming hikes. Search trails to create a hike.</p><br>
+					<%= button_to "Search Trails", trails_path, method: :get, :class => "button is-light is-outlined" %>
+				<% else %>
+					<% @upcoming_hikes.each do |hike| %>
+							<p><%= hike.start_date%> - <%= link_to hike.trail.name, hike_path(hike) %></p>
+					<% end%>
+				<% end %>
 </div>
 <br>
 <div>
     <h3 class="title is-3 underline">Past Hikes</h3>
-        <% @past_hikes.each do |hike| %>
-            <p><%= hike.end_date%> - <%= link_to hike.trail.name, hike_path(hike) %></p>
-        <% end%>
+        <% if @past_hikes.empty?%>
+					<p>You have no past hikes.</p>
+				<% else %>
+					<% @past_hikes.each do |hike| %>
+							<p><%= hike.end_date%> - <%= link_to hike.trail.name, hike_path(hike) %></p>
+					<% end%>
+				<% end %>
 </div>
