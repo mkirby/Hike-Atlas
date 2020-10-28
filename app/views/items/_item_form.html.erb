@@ -1,9 +1,10 @@
-<% if flash[:errors]%>
-    <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-    <% end %>
-<% end %>
-
+<div class="error-messages">
+	<% if flash[:errors]%>
+		<% flash[:errors].each do |error| %>
+			<p><%= error %></p>
+		<% end %>
+	<% end %>
+</div>
 <div class="field">
 	<%= form_for @item do |f| %>
 			<%= f.label :name %><br>

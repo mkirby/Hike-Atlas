@@ -51,12 +51,8 @@ a:hover {
     color: white;
 }
 
-.is-1, .is-2, .is-3, .is-4, .is-5, .is-6{
+.is-1, .is-2, .is-3, .is-4, .is-5, .is-6, .label {
     color: white;
-}
-
-.label {
-	color: white;
 }
 
 .input {
@@ -85,7 +81,7 @@ a:hover {
     align-content: center;
 }
 
-#errors p {
+.error-messages p {
     color: red;
     justify-content: center;
 }

@@ -5,7 +5,7 @@
 		<br>
 		<%= render 'trail_search_form' %>
 	<% else %>
-		<div id="errors">
+		<div class="error-messages">
 			<% if flash[:not_authorized] %>
 				<p><%= flash[:not_authorized] %></p>
 			<% end %>
